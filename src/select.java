@@ -17,9 +17,9 @@ public class select {
 
 
         /*******归并排序
-
+         hb_sort(px);
          *************/
-        hb_sort(px);
+
 
 
 
@@ -34,6 +34,11 @@ public class select {
             System.out.print(item+" ");
         }
     }
+
+
+
+
+
     //选择排序
     public static void search(int[] px)
     {
@@ -57,6 +62,10 @@ public class select {
     }
 
 
+
+
+
+
     //冒泡排序
     public static void mp(int[] px)
     {
@@ -76,6 +85,11 @@ public class select {
         System.out.println("这是冒泡排序后：");
     }
 
+
+
+
+
+
     //插入排序
     public static void cr(int[] px)
     {
@@ -94,6 +108,11 @@ public class select {
     }
 
 
+
+
+
+
+    //归并排序
     public static void hb_sort(int px[])
     {
         int n=px.length;
@@ -145,6 +164,12 @@ public class select {
             left++;
         }
     }
+
+
+
+
+
+
     //顺序查找
     public static void sx_search(int[] px,int k)
     {
@@ -175,4 +200,8 @@ public class select {
         }
             System.out.println("找到了k值,对于的位置为"+i);
     }
+
+
+
+
 }
