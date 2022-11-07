@@ -28,6 +28,10 @@ public class select {
          *******/
 
 
+        /********快速排序
+
+         ***********/
+        quick_search(px, 0, px.length - 1);
 
         for (int item:px)
         {
@@ -93,7 +97,7 @@ public class select {
     //插入排序
     public static void cr(int[] px)
     {
-        for(int i=0;i<px.length;i++)
+        for(int i=1;i<px.length;i++)
         {
             int key=px[i];//设置一个用来装后面一个参数（以为如果找到比较小的，需要换位置，前面的会覆盖掉后面的）
             int j=i-1;//设置一前一后对比的下标，j代表下标前一位，i代表下标后一位
@@ -110,8 +114,6 @@ public class select {
 
 
 
-
-
     //归并排序
     public static void hb_sort(int px[])
     {
@@ -122,6 +124,7 @@ public class select {
             hebing_sort(px,px_temp,0,n-1);
         }
     }
+
     public static void hebing_sort(int[] px,int[] px_temp,int left,int right)
     {
         if (left<right)
@@ -167,6 +170,37 @@ public class select {
 
 
 
+    //快速排序
+    public static void quick_search(int[] px,int low,int high)
+    {
+        if(low<high)
+        {
+            int mid=partition(px,low,high);
+            quick_search(px,low,mid-1);
+            quick_search(px,mid+1,high);
+        }
+    }
+
+    public static int partition(int[] px, int low ,int high)
+    {
+        int pivot=px[high];
+        int i=low-1;
+        int temp;
+        int temp2;
+        for (int j=low;j<high;j++)
+        {
+            if (px[j]<pivot)
+            {
+                temp=px[j];
+                px[j]=px[++i];
+                px[i]=temp;
+            }
+        }
+        temp2=px[high];
+        px[high]=px[i+1];
+        px[i+1]=temp2;
+        return i+1;
+    }
 
 
 
