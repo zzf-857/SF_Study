@@ -163,32 +163,31 @@ public class select {
 
     //快速排序2（简）
     public static void quick_search2(int[] px, int left, int right) {
-        int l = left;
-        int r = right;
-        int pivot = px[r];//从右边选点
+        int l=left;
+        int r=right;
+
         //从左边选点 int pivot=px[l];
-        if (l < r)//找到不能再找了
+        if(l<r)//找到不能再找了
         {
-            while (l != r)//两个点相遇的时候
+            int pivot=px[r];//从右边选点
+            while (l!=r)//两个点相遇的时候
             {
-                //!!!!从右边选点就得先从左边搜索!!!!
-                while (l < r && pivot > px[l]) {
+                //!!!!!!!!!!!!!!从右边选点就得先从左边搜索!!!!!!!
+                while(l<r&&px[l]<pivot)
+                {
                     l++;
                 }
-
-                //!!!!从左边选点就得先从右边搜索!!!!!!!!!!!!
-                px[r] = px[l];
-                while (l < r && pivot < px[r]) {
+                px[r]=px[l];
+                //!!!!!!!!!!从左边选点就得先从右边搜索!!!!!!!!!!!!!!
+                while (l<r&&px[r]>pivot)
+                {
                     r--;
                 }
-                px[l] = px[r];
-
-
+                px[l]=px[r];
             }
-            px[l] = pivot;
-
-            quick_search2(px, left, r - 1);
-            quick_search2(px, r + 1, right);
+            px[r]=pivot;//这一步是为了把“正确点”放到正确的位置，因为执行到这一步的时候r是等于l的，所以r和l都可以
+            quick_search2(px, left, r-1);//右边减一是指左边部分的最右边应该是为“正确点”因为正确点放定位置后不会变，所以可以省一步从“正确点”左边一个开始递归
+            quick_search2(px, r+1,right);//与上同理
         }
     }
 
