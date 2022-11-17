@@ -1,3 +1,5 @@
+package 多种排序算法;
+
 public class select {
     public static void main(String[] args) {
         int px[] = new int[]{12, 15, 31, 20, 11, 1, 5, 8, 18};
